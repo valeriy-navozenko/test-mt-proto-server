@@ -1,4 +1,4 @@
-name := "test-mt-proto"
+name := "test-mt-proto-server"
 
 version := "0.1"
 

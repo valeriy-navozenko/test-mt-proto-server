@@ -1,4 +1,4 @@
-package com.test.client
+package com.mtproto.client
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer

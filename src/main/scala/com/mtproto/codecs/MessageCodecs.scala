@@ -1,6 +1,6 @@
-package com.test.codecs
+package com.mtproto.codecs
 
-import com.test.messages.{ReqDHParamsMessage, ReqPqMessage, ResPqMessage, UnencryptedMessage}
+import com.mtproto.messages.{ReqDHParamsMessage, ReqPqMessage, ResPqMessage, UnencryptedMessage}
 import scodec.Codec
 import scodec.codecs._
 

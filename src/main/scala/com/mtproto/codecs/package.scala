@@ -1,4 +1,4 @@
-package com.test
+package com.mtproto
 
 import akka.util.ByteString
 import scodec.Codec

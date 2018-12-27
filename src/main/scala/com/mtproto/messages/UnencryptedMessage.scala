@@ -1,4 +1,4 @@
-package com.test.messages
+package com.mtproto.messages
 
 import akka.util.ByteString
 

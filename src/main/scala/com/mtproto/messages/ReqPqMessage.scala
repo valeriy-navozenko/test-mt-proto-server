@@ -1,4 +1,4 @@
-package com.test.messages
+package com.mtproto.messages
 
 // See https://core.telegram.org/mtproto/auth_key
 
@@ -7,4 +7,4 @@ object ReqPqMessage {
 }
 
 // req_pq#60469778 nonce:int128 = ResPQ;
-case class ReqPqMessage(nonce: BigInt)
+case class ReqPqMessage(nonce: Long)

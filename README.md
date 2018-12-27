@@ -23,5 +23,6 @@ https://core.telegram.org/mtproto/description#unencrypted-message
 
 TODO
 ====
+- cipher for req_DH_params should be RSA/ECB/NoPadding
 - add tests
 - fix scalastyles issues

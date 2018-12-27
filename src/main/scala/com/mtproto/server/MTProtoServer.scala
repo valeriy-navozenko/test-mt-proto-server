@@ -1,11 +1,11 @@
-package com.test.server
+package com.mtproto.server
 
 import akka.actor.ActorSystem
 import akka.stream.ActorMaterializer
 import akka.stream.scaladsl.{Flow, Tcp}
 import akka.util.ByteString
-import com.test.codecs.MessageCodecs
-import com.test.messages.UnencryptedMessage
+import com.mtproto.codecs.MessageCodecs
+import com.mtproto.messages.UnencryptedMessage
 import com.typesafe.config.ConfigFactory
 import scodec.bits.BitVector
 
