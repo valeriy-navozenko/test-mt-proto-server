@@ -19,16 +19,12 @@ object MTProtoServer extends App {
   Tcp()
     .bind(host, port)
     .runForeach { connection =>
-      val commandParser = Flow[String].takeWhile(_ != "BYE").map(_ + "!")
-
       // TODO: Note that MTProto 2.0 requires from 12 to 1024 bytes of padding
       val serverLogic = Flow[ByteString]
         .map(message => MessageCodecs.unencryptedMessageCodec.decode(BitVector(message)).require.value)
         .via(new FlowProcess())
         .map(message => ByteString(
-          MessageCodecs
-            .unencryptedMessageCodec
-            .encode(UnencryptedMessage(0, 0, message.messageDataLength, message.messageData)).require.bytes.toArray)
+          MessageCodecs.unencryptedMessageCodec.encode(UnencryptedMessage(0, 0, 0, message)).require.bytes.toArray)
         )
 
       connection.handleWith(serverLogic)

@@ -17,4 +17,4 @@ object ResPqMessage {
 }
 
 // resPQ#05162463 nonce:int128 server_nonce:int128 pq:string server_public_key_fingerprints:Vector long = ResPQ;
-case class ResPqMessage(nonce: Long, serverNonce: Long, pq: ByteString, fingerPrints: Vector[Long])
+case class ResPqMessage(nonce: Long, serverNonce: Long, pq: ByteString, fingerPrints: Vector[Long]) extends ResponseMessage

@@ -19,7 +19,7 @@ object MessageCodecs {
       ("server_public_key_fingerprints" | vector(int64))
   }.dropUnits.as[ResPqMessage]
 
-  val reqDHParamsCodec: Codec[ReqDHParamsMessage] = {
+  val reqDHParamsMessageCodec: Codec[ReqDHParamsMessage] = {
     ("identifier" | constant(int32.encode(ReqDHParamsMessage.classId).require)) ::
       ("nonce" | int64) ::
       ("server_nonce" | int64) ::
@@ -33,7 +33,7 @@ object MessageCodecs {
     ("auth_key_id" | int64) ::
       ("message_id" | int64) ::
       ("message_data_length" | int32) ::
-      ("message_data" | bytesString)
+      ("message_data" | message)
   }.as[UnencryptedMessage]
 
 }

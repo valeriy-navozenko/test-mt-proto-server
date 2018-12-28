@@ -7,4 +7,4 @@ object ReqPqMessage {
 }
 
 // req_pq#60469778 nonce:int128 = ResPQ;
-case class ReqPqMessage(nonce: Long)
+case class ReqPqMessage(nonce: Long) extends RequestMessage
