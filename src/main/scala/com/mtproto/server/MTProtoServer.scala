@@ -24,6 +24,7 @@ object MTProtoServer extends App {
       // TODO: Note that MTProto 2.0 requires from 12 to 1024 bytes of padding
       val serverLogic = Flow[ByteString]
         .map(message => MessageCodecs.unencryptedMessageCodec.decode(BitVector(message)).require.value)
+        .via(new FlowProcess())
         .map(message => ByteString(
           MessageCodecs
             .unencryptedMessageCodec

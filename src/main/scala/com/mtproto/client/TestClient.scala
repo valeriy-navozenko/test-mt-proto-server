@@ -23,7 +23,7 @@ object TestClient extends App {
 
   val repl = Flow[ByteString]
     .map(_.utf8String)
-    .map(text => println("Server: " + text))
+    .map(text => println(s"Server: $text"))
     .map(_ => StdIn readLine "> ")
     .via(replParser)
 
