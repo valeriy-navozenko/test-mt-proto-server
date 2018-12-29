@@ -7,12 +7,12 @@ import javax.crypto.Cipher
 
 class RSAPublicKey(modulus: BigInt, exponent: BigInt) {
 
-  def asJavaRSAKey(): JavaRSAPublicKey = {
+  def generate(): JavaRSAPublicKey = {
     rsaKeyFactory.generatePublic(new RSAPublicKeySpec(modulus.bigInteger, exponent.bigInteger)).asInstanceOf[JavaRSAPublicKey]
   }
 
   def encrypt(message: Array[Byte]): Array[Byte] = {
-    rsaECBCipher.init(Cipher.ENCRYPT_MODE, asJavaRSAKey())
+    rsaECBCipher.init(Cipher.ENCRYPT_MODE, generate())
     rsaECBCipher.doFinal(message)
   }
 
