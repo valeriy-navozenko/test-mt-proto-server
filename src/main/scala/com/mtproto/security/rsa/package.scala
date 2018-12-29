@@ -6,7 +6,7 @@ import javax.crypto.Cipher
 
 package object rsa {
 
-  private val rsaECBCipher = Cipher.getInstance("RSA/ECB/NoPadding")
-  private val rsaKeyFactory: KeyFactory = KeyFactory.getInstance("RSA")
+  val rsaECBCipher = Cipher.getInstance("RSA/ECB/NoPadding")
+  val rsaKeyFactory: KeyFactory = KeyFactory.getInstance("RSA")
 
 }

@@ -1,6 +1,6 @@
 package com.mtproto.codecs
 
-import com.mtproto.messages.{ReqDHParamsMessage, ReqPqMessage, ResPqMessage, UnencryptedMessage}
+import com.mtproto.messages._
 import scodec.Codec
 import scodec.codecs._
 
@@ -35,5 +35,15 @@ object MessageCodecs {
       ("message_data_length" | int32) ::
       ("message_data" | message)
   }.as[UnencryptedMessage]
+
+  val pqInnerDataCodec: Codec[PqInnerData] = {
+    ("identifier" | constant(int32.encode(PqInnerData.classId).require)) ::
+      ("pq" | bytesString) ::
+      ("p" | bytesString) ::
+      ("q" | bytesString) ::
+      ("nonce" | int64) ::
+      ("serverNonce" | int64) ::
+      ("newNonce" | int64)
+  }.dropUnits.as[PqInnerData]
 
 }
